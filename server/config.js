@@ -107,6 +107,30 @@ app.get('/table/routes/create', (req, res) => {
    });
 });
 
+// inserting value into vehicles table
+
+app.get('/createVehiclesTable', (req, res) => {
+   const sql = 'INSERT INTO vehicles (vehicle_id,vehicle_type,vehicle_number ) VALUES ?'
+   const values = [
+       [1, "Train", "ES523"],
+       [2, "Bus", "75"],
+       [3, "Train", "EK888"],
+       [4, "Train", "879"],
+       [5, "Bus", "SHUT154"],
+       [6, "Train", "ES899"],
+       [7, "Bus", "17568"],
+       [8, "Train", "ES523"],
+   ]
+   database.query(sql, [values], (err, result) => {
+      if (err) {
+         res.send(err.stack);
+         throw err;
+      }
+      console.log(result);
+      res.json({msg: 'vahicle table data has been created', result});
+   })
+});
+
 
 app.listen(3000, () => {
    console.log("server started po port 3000")
