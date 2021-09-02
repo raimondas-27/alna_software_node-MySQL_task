@@ -118,5 +118,6 @@ dist
 .pnp.*
 
 connSting.js
+.idea
 
 
