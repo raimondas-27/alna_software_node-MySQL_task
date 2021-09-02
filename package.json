@@ -1,0 +1,26 @@
+{
+  "name": "alna_software_node-oracle_sql_task",
+  "version": "1.0.0",
+  "description": "nodejs-task_with_oracleDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "R.K.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raimondas-27/alna_software_node-oracle_sql_task.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raimondas-27/alna_software_node-oracle_sql_task/issues"
+  },
+  "homepage": "https://github.com/raimondas-27/alna_software_node-oracle_sql_task#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "oracledb": "^5.2.0"
+  }
+}

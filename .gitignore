@@ -119,5 +119,6 @@ dist
 
 connSting.js
 .idea
+.DS_Store
 
 
