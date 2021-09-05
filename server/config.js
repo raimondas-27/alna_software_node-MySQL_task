@@ -131,6 +131,50 @@ app.get('/createVehiclesTable', (req, res) => {
    })
 });
 
+app.get('/createStationsTable', (req, res) => {
+   const sql = 'INSERT INTO vehicles (station_id,station_name,station_address) VALUES ?'
+   const values = [
+       [1, "Vilnius train station", "Geležinkelio g. 16, Vilnius"],
+       [2, "Kaunas bus station", "Vytauto pr. 24, Kaunas"],
+       [3, "Šiauliai train station", "Dubijos g. 42A, Šiauliai"],
+       [4, "Klaipėda train station", "Priestočio g. 1, Klaipėda"],
+       [5, "Vilnius bus station", "Sodų g. 22, LT-03211 Vilnius"],
+       [6, "Kaunas train station", "M. K. Čiurlionio g. 16, Kaunas"],
+   ]
+   database.query(sql, [values], (err, result) => {
+      if (err) {
+         res.send(err.stack);
+         throw err;
+      }
+      console.log(result);
+      res.json({msg: 'stations table data has been created', result});
+   })
+});
+
+app.get('/createRoutesTable', (req, res) => {
+   const sql = 'INSERT INTO vehicles (route_id,vehicle_id,depature_station,arrival_station,depature_time,arrival_time) VALUES ?'
+   const values = [
+       [1,1,1,3,"2018-05-02 12:40","2018-05-02 15:08"],
+       [2,2,2,5,"2018-05-04 23:52","2018-05-05 01:04"],
+       [3,3,3,1,"2018-05-08 06:34","2018-05-08 09:36"],
+       [4,4,4,1,"2018-05-10 14:14","2018-05-10 18:23"],
+       [5,5,5,2,"2018-05-09 12:36","2018-05-09 13:28"],
+       [6,6,6,1,"2018-05-29 17:01","2018-05-29 18:50"],
+       [7,7,5,2,"2018-05-28 19:45","2018-05-28 20:58"],
+       [8,8,1,4,"2018-05-25 10:03","2018-05-25 15:22"],
+   ]
+   database.query(sql, [values], (err, result) => {
+      if (err) {
+         res.send(err.stack);
+         throw err;
+      }
+      console.log(result);
+      res.json({msg: 'routes table data has been created', result});
+   })
+});
+
+
+
 
 app.listen(3000, () => {
    console.log("server started po port 3000")
